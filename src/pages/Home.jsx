@@ -63,7 +63,7 @@ const Home = () => {
 
             {!isObjEmpty(data) ? 
               <div className="mt-5 flex justify-center">
-                <GithubCard data={data} />
+                <GithubCard data={data} setError={setError} />
               </div>
             : ""}
             

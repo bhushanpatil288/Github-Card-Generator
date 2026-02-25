@@ -3,7 +3,7 @@ import githubLogo from "/images/github-logo.png"
 import domtoimage from 'dom-to-image';
 import BtnPrimary from "./BtnPrimary";
 
-const GithubCard = ({ data }) => {
+const GithubCard = ({ data, setError }) => {
 
   const downloadImage=(imageClass)=>{
     const imageNode = document.querySelector(`.${imageClass}`);
@@ -13,6 +13,7 @@ const GithubCard = ({ data }) => {
         link.download = `${data.name}-card.png`;
         link.href = dataUrl;
         link.click();
+        setError(false)
       }
     )
     .catch((e)=>{
@@ -61,7 +62,6 @@ const GithubCard = ({ data }) => {
             data.company ? <div className="mt-5">
               <div className="flex justify-center gap-2 font-semibold">
                 <p><RiBuildingLine /></p>
-                <h3>WORKS AT</h3>
               </div>
               <div className="flex justify-center items-center text-gray-600">
                 <p className="">{data.company}</p>
