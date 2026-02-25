@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { isObjEmpty } from "../utils/isEmpty"
 import GithubCard from "../components/GithubCard";
+import Swal from "sweetalert2";
+import { fireAlert } from "../utils/sweetAlert";
+
 
 const Home = () => {
   const [ error, setError ] = useState(false);
@@ -22,12 +25,19 @@ const Home = () => {
 
     setQuery(username);
     setUsername("");
+    setError(false)
   }
 
   useEffect(()=>{
     const fetchData = async ()=>{
-        const res = await axios.get(`https://api.github.com/users/${query}`);
-        setData(res.data)
+        try{
+          const res = await axios.get(`https://api.github.com/users/${query}`);
+          setData(res.data)
+        } catch (e){
+          console.log(e);
+          fireAlert("user doesn't exist!")
+          return;
+        }
     }
 
     if(query){
