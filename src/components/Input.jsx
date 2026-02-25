@@ -4,7 +4,7 @@ const Input = ({type, placeholder, username, setUsername}) => {
     <input 
       type={type} 
       placeholder={placeholder} 
-      className="bg-cyan-600 placeholder:text-white shadow-md rounded-lg px-3 py-2 outline-none text-white"
+      className="bg-[#555] placeholder:text-white shadow-md rounded-lg px-3 py-2 outline-none text-white"
       value={username}
       onChange={(e)=>{setUsername(e.target.value)}}
     />

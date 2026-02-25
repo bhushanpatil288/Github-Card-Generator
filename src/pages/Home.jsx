@@ -58,7 +58,7 @@ const Home = () => {
             />
             <p className={`text-red-600 text-xs mt-1 ${error ? "" :"opacity-0"} select-none`}>Please enter a valid username</p>
             <div className="mt-5">
-              <BtnPrimary text={"Create Card"} color={"bg-cyan-800 text-black text-white"} hover={"bg-cyan-900"} />
+              <BtnPrimary text={"Create Card"} color={"bg-[#333] text-black text-white"} hover={"hover:bg-[#444]"} />
             </div>
 
             {!isObjEmpty(data) ? 

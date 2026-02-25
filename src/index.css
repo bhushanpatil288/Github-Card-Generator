@@ -8,9 +8,10 @@
 @layer base{
   html{
     font-family: var(--font-display);
+    color: white;
   }
 
   body{
-    background-color: cyan;
+    background-color: #111;
   }
 }
