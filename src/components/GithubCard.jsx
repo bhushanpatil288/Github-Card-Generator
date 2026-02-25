@@ -1,7 +1,25 @@
 import { RiMapPinLine, RiBuildingLine } from "@remixicon/react"
 import githubLogo from "/images/github-logo.png"
+import domtoimage from 'dom-to-image';
+import BtnPrimary from "./BtnPrimary";
 
 const GithubCard = ({ data }) => {
+
+  const downloadImage=(imageClass)=>{
+    const imageNode = document.querySelector(`.${imageClass}`);
+    domtoimage.toPng(imageNode).then(
+      (dataUrl)=>{
+        const link = document.createElement("a");
+        link.download = `${data.name}-card.png`;
+        link.href = dataUrl;
+        link.click();
+      }
+    )
+    .catch((e)=>{
+      console.error("Error occured while generating an image: ", e);
+    })
+  }
+
   return (
     <div className="w-full mx-3 md:w-2/3 xl:w-1/3">
       <div className="github-card border border-black bg-white shadow-md px-3 py-3 rounded-md select-none">
@@ -58,6 +76,14 @@ const GithubCard = ({ data }) => {
         </div>
 
       </div>
+      <div className="mt-5">
+        <BtnPrimary text={"Download Card"} color={"bg-black text-white"} hover={"bg-gray-500"} 
+          onClick={()=>{
+            downloadImage("github-card");
+          }} 
+        />
+      </div>
+      
     </div>
   )
 }

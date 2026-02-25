@@ -10,41 +10,7 @@ const Home = () => {
   const [ error, setError ] = useState(false);
   const [ username, setUsername ] = useState("");
   const [ query, setQuery ] = useState("");
-  const [ data, setData ] = useState({
-  "login": "Anantshah133",
-  "id": 134212697,
-  "node_id": "U_kgDOB__sWQ",
-  "avatar_url": "https://avatars.githubusercontent.com/u/134212697?v=4",
-  "gravatar_id": "",
-  "url": "https://api.github.com/users/Anantshah133",
-  "html_url": "https://github.com/Anantshah133",
-  "followers_url": "https://api.github.com/users/Anantshah133/followers",
-  "following_url": "https://api.github.com/users/Anantshah133/following{/other_user}",
-  "gists_url": "https://api.github.com/users/Anantshah133/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/Anantshah133/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/Anantshah133/subscriptions",
-  "organizations_url": "https://api.github.com/users/Anantshah133/orgs",
-  "repos_url": "https://api.github.com/users/Anantshah133/repos",
-  "events_url": "https://api.github.com/users/Anantshah133/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/Anantshah133/received_events",
-  "type": "User",
-  "user_view_type": "public",
-  "site_admin": false,
-  "name": "Anant Shah",
-  "company": "Red And White Skill Education",
-  "blog": "",
-  "location": "Surat",
-  "email": null,
-  "hireable": null,
-  "bio": "I'm a Full Stack Developer, continuously refining my expertise in development and analysis to build efficient and scalable solutions.",
-  "twitter_username": "anantshah133",
-  "public_repos": 22,
-  "public_gists": 0,
-  "followers": 43,
-  "following": 43,
-  "created_at": "2023-05-21T13:38:36Z",
-  "updated_at": "2026-02-24T08:53:23Z"
-});
+  const [ data, setData ] = useState({});
 
   const handleSubmit=(e)=>{
     e.preventDefault();
@@ -82,7 +48,7 @@ const Home = () => {
             />
             <p className={`text-red-600 text-xs mt-1 ${error ? "" :"opacity-0"} select-none`}>Please enter a valid username</p>
             <div className="mt-5">
-              <BtnPrimary text={"Create Card"} />
+              <BtnPrimary text={"Create Card"} color={"bg-cyan-800 text-black text-white"} hover={"bg-cyan-900"} />
             </div>
 
             {!isObjEmpty(data) ? 
